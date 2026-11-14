@@ -1,0 +1,10 @@
+Bitcoin 4h Forecast — Two-Horizon Median-Reversion Forecaster
+
+A stdlib-only, offline, deterministic Python forecaster: each case's guess
+is its checkpoint close times exp(Q45 of the 240-minute log-returns in its
+own 72-hour window, minus a two-horizon mean-reversion pullback — 0.20 of
+the last 240-minute move plus 0.05 of the last 120-minute move) — the
+conditional median of the 4-hour change, corrected for the negative
+autocorrelation of Bitcoin returns. Backtested 44,470 cents mean absolute
+error on the five practice cases with known actuals, vs 47,055 for the
+persistence baseline (-5.5%).
